@@ -767,6 +767,7 @@ declare namespace Parse {
         static current(): User | undefined;
         static signUp(username: string, password: string, attrs: any, options?: SignUpOptions): Promise<User>;
         static logIn(username: string, password: string, options?: SuccessFailureOptions): Promise<User>;
+        static logInWith(provider: string, authData: any, options?: SuccessFailureOptions): Promise<User>;
         static logOut(): Promise<User>;
         static allowCustomUserClass(isAllowed: boolean): void;
         static become(sessionToken: string, options?: SuccessFailureOptions): Promise<User>;
@@ -775,6 +776,7 @@ declare namespace Parse {
 
         signUp(attrs: any, options?: SignUpOptions): Promise<this>;
         logIn(options?: SuccessFailureOptions): Promise<this>;
+        logInWith(options?: SuccessFailureOptions): Promise<this>;
         authenticated(): boolean;
         isCurrent(): boolean;
 
